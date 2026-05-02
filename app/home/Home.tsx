@@ -11,7 +11,6 @@ import {
   Landmark,
   Receipt,
   Settings2,
-  Sparkles,
   TrendingDown,
   UserCog,
   Users,
@@ -71,7 +70,8 @@ const Home = () => {
               transition={{ duration: 0.5 }}
               className='inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary'
             >
-              <Sparkles className='h-3.5 w-3.5' /> {t('hero.badge')}
+              <span className='h-1.5 w-1.5 rounded-full bg-primary-glow animate-pulse' />{' '}
+              {t('hero.badge')}
             </motion.div>
 
             <motion.h1
@@ -280,13 +280,13 @@ const Home = () => {
               </div>
               <div className='space-y-3'>
                 {[
-                  { l: 'Full name', v: 'Ayesha Rahman' },
+                  { l: 'Full name', v: 'Arabi Zaman' },
                   { l: 'Student ID', v: 'EMS-2026-0481' },
                   {
                     l: 'Programs',
-                    v: 'HSC Science · English Club · Math Olympiad',
+                    v: 'OSHA-30 HOUR(USA) · IOSH-MS (UK) · HSE',
                   },
-                  { l: 'Batch', v: 'Morning · Section A' },
+                  { l: 'Batch', v: 'RA2026' },
                 ].map((r) => (
                   <div
                     key={r.l}

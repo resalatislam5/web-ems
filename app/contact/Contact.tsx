@@ -10,6 +10,7 @@ import { Button } from '@/common/components/ui/button';
 import { Input } from '@/common/components/ui/input';
 import { Label } from '@/common/components/ui/label';
 import { Textarea } from '@/common/components/ui/textarea';
+import { siteInfo } from '@/common/utils/siteInfo';
 
 const Contact = () => {
   const { t } = useTranslation();
@@ -25,26 +26,26 @@ const Contact = () => {
     }, 700);
   };
 
-  const whatsappNumber = '8801765975545';
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi! I'd like to know more about EMS.")}`;
+  const whatsappNumber = siteInfo.mobile;
+  const whatsappLink = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent("Hi! I'd like to know more about EMS.")}`;
 
   const cards = [
     {
       icon: Mail,
       label: t('contact.emailUs'),
-      value: 'hello@ems.app',
-      href: 'mailto:hello@ems.app',
+      value: siteInfo.email,
+      href: `mailto:${siteInfo.email}`,
     },
     {
       icon: Phone,
       label: t('contact.callUs'),
-      value: '+880 1765 975545',
-      href: 'tel:+8801765975545',
+      value: siteInfo.mobile,
+      href: `tel:${siteInfo.mobile}`,
     },
     {
       icon: MessageCircle,
       label: 'WhatsApp',
-      value: '+880 1765 975545',
+      value: siteInfo.mobile,
       href: whatsappLink,
       accent: true,
     },
