@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     siteName: siteInfo.name,
     images: [
       {
-        url: `${siteInfo.baseUrl}/ems-logo.png`,
+        url: `${siteInfo.baseUrl}/icon.png`,
         width: 1200,
         height: 630,
         alt: siteInfo.name,
@@ -114,6 +114,19 @@ export default function RootLayout({
       <ClientSide>
         <body className='min-h-full flex flex-col'>{children}</body>
       </ClientSide>
+
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: siteInfo.name,
+            url: siteInfo.baseUrl,
+            logo: `${siteInfo.baseUrl}/ems-logo.png`,
+          }),
+        }}
+      />
     </html>
   );
 }
