@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Logo } from './Logo';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import Link from 'next/link';
+import { siteInfo } from '../utils/siteInfo';
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -13,18 +14,27 @@ export const Footer = () => {
           <p className='mt-4 text-sm text-muted-foreground leading-relaxed'>
             {t('footer.tagline')}
           </p>
-          <div className='mt-6 space-y-2 text-sm text-muted-foreground'>
-            <div className='flex items-center gap-2'>
-              <Mail className='h-4 w-4 text-primary' /> hello@ems.app
-            </div>
-            <div className='flex items-center gap-2'>
-              <Phone className='h-4 w-4 text-primary' /> +880 1700 000000
-            </div>
+          <div className='mt-6 space-y-3 text-sm text-muted-foreground'>
+            <Link
+              className='flex items-center gap-2'
+              href={`mailto:${siteInfo.email}`}
+            >
+              <Mail className='h-4 w-4 text-primary' /> {siteInfo.email}
+            </Link>
+
+            <Link
+              className='flex items-center gap-2'
+              href={`tel:${siteInfo.mobile}`}
+            >
+              <Phone className='h-4 w-4 text-primary' /> {siteInfo.mobile}
+            </Link>
+
             <div className='flex items-center gap-2'>
               <MapPin className='h-4 w-4 text-primary' /> Dhaka, Bangladesh
             </div>
           </div>
         </div>
+
         <div>
           <h4 className='font-display font-semibold mb-4'>
             {t('footer.product')}
@@ -70,7 +80,16 @@ export const Footer = () => {
           <span>
             © {new Date().getFullYear()} EMS. {t('footer.rights')}
           </span>
-          <span>Made with care for educators.</span>
+          <span>
+            Maintained by{' '}
+            <Link
+              target='_blank'
+              href={siteInfo.company_url}
+              className='text-primary hover:underline font-semibold'
+            >
+              {siteInfo.company_name}
+            </Link>
+          </span>
         </div>
       </div>
     </footer>
