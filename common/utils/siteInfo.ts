@@ -1,5 +1,5 @@
 export const siteInfo = {
-  baseUrl: 'https://ems.alldigitaldev.com',
+  baseUrl: 'https://ems-web-one.vercel.app',
   name: 'EMS-Internal Management System',
   description:
     'EMS is a complete internal management solution for course-selling companies and overseas preparation services — handling students, enrollments, payments, agents, accounts and reports in one place.',
